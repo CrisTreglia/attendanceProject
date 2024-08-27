@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'), timestamps = require('mongoose-timestamp');
 
 //Defining schema for the AttendanceManager
 const attendanceManagerSchema = new mongoose.Schema({
@@ -17,8 +17,10 @@ const attendanceManagerSchema = new mongoose.Schema({
         default: 'Attendance Manager',
         enum: ['Attendance Manager', 'Admin'],
     },
-    timestamps: true,
-});
+    
+    
+},
+{timestamps: true});
 
 
 

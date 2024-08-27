@@ -1,6 +1,7 @@
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express();
+const bodyParser = require('body-parser');
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 const authRoutes = require('./routes/authRoutes.js');
@@ -18,8 +19,11 @@ app.set('views', './views');
 
 //Middleware
 app.use(express.static('public'));
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', authRoutes);
 app.use('/', studentRoutes);
+
 
 
 //Global Error Handling
